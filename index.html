@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Offline Message Test</title>
+</head>
+
+<body>
+  <p>Hello, World!</p>
+
+  <script>
+    // Check if the user is online
+    if (navigator.onLine) {
+      // Store the online message
+      localStorage.setItem('onlineMessage', 'You are online.');
+    } else {
+      // Store the offline message if the user is already offline
+      localStorage.setItem('offlineMessage', 'Oops! It looks like you are offline.');
+    }
+
+    // Retrieve and display the appropriate message
+    var storedMessage = localStorage.getItem('onlineMessage') || localStorage.getItem('offlineMessage');
+    if (storedMessage) {
+      document.body.innerHTML += "<h1>" + storedMessage + "</h1>";
+    }
+  </script>
+</body>
+
+</html>
